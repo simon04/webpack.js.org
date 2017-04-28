@@ -27,7 +27,10 @@ function main() {
     if (err) {
       return console.error(err);
     }
-
+ 
+    d = d.filter(function(repo) {
+      return !/UNMAINTAINED/.test(repo.description);
+    }); 
     console.log(JSON.stringify(d, null, 4));
   });
 }
